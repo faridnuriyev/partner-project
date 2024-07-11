@@ -1,1 +1,1 @@
-export const isProd = window.location.href.indexOf("localhost") !== -1;
+export const isProd = window.location.href.indexOf("localhost:") === -1;

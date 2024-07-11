@@ -4,12 +4,14 @@ export interface State {
     isAuthenticated: boolean;
     currentUser: null;
     lang: string;
+    siteId: number;
 }
 
 const initialState: State = {
     isAuthenticated: false,
     currentUser: null,
     lang: "en",
+    siteId: 1,
 };
 
 export const slice = createSlice({
@@ -23,13 +25,17 @@ export const slice = createSlice({
             state.isAuthenticated = action.payload;
         },
         setLang: (state: any, action: any) => {
-            state.isAuthenticated = action.payload;
+            state.lang = action.payload;
         },
-        logout: () => {
+        logout: (state: any) => {
+            state.isAuthenticated = false;
+            state.currentUser = null;
+        },
+        resetAuth: () => {
             return initialState;
         },
     },
 });
 
-export const { setUser, setIsAuth, setLang, logout } = slice.actions;
+export const { setUser, setIsAuth, setLang, logout, resetAuth } = slice.actions;
 export default slice.reducer;

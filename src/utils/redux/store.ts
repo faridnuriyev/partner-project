@@ -8,16 +8,18 @@ import auth from "./features/auth";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { isProd } from "../../constants/config";
+import player from "./features/player";
 
 const persistConfig = {
     key: "dashboard",
-    whitelist: ["auth"],
+    whitelist: ["auth", "player"],
     blacklist: [],
     storage,
 };
 
 const reducers = combineReducers({
     auth,
+    player,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers);

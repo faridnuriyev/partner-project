@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+:root {
+    --card-container-color: #313b39;
+    --login-btn-color: #146e51;
+    --input-bg-color: #1d1d1d;
+    --input-txt-color: #53565b;
+    --border-color: #353535;
+}
+
+.cardContainer {
+    background: var(--card-container-color);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-radius: 10px;
+    padding: 40px 20px;
+    width: 75%;
+}
+.cardLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.cardLogoText > h2 {
+    font-size: 30px;
+    color: #fafafa;
+}
+.cardLogoText > h2 > span {
+    font-size: 15px;
+    color: #9e9f9d;
+}
+
+h4 {
+    color: #f5f5f5;
+    font-weight: 500;
+    margin: 5px 0;
+}
+.cardContainer input {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: var(--input-bg-color);
+    border: none;
+    color: var(--input-txt-color);
+    font-size: 14px;
+    width: 100%;
+}
+.cardContainer input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.passwordInput {
+    display: flex;
+    justify-content: start;
+    border-radius: 5px;
+    align-items: center;
+    background-color: var(--input-bg-color);
+}
+
+.passwordInput > button {
+    display: flex;
+    align-items: center;
+    padding-right: 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--input-bg-color);
+    color: var(--input-txt-color);
+}
+.cardContainer button{
+    font-family:"Montserrat", sans-serif;
+}
+@media only screen and (max-width: 768px) {
+    .cardContainer {
+        width: 100%;
+    }
+}

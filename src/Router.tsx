@@ -5,6 +5,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
 import Login from "./containers/Login";
 import Home from "./containers/Home";
+import PlayerDetail from "./containers/PlayerDetail";
 
 const persistor = persistStore(store);
 
@@ -14,6 +15,10 @@ function Router() {
             <PersistGate loading={null} persistor={persistor}>
                 <Routes>
                     <Route path="/" element={<Home />} />
+                    <Route
+                        path="/player/:playerId"
+                        element={<PlayerDetail />}
+                    />
                     <Route path="/login" element={<Login />} />
                 </Routes>
             </PersistGate>

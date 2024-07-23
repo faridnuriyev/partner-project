@@ -1,14 +1,6 @@
 import { styled } from "@mui/material/styles";
 import Button, { ButtonProps } from "@mui/material/Button";
 
-// background: #146e51 !important;
-// border: none !important;
-// border-radius: 3px !important;
-// color: white !important;
-// width: 100% !important;
-// padding: 10px !important;
-// margin-top: 30px !important;
-
 const CustomButton = styled(Button)({
     background: "#146e51",
     marginTop:"15px",

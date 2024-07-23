@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "../../assets/style/UserAccount.css";
 
 import Table from "@mui/material/Table";

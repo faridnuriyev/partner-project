@@ -16,12 +16,12 @@ export default function AccessCard() {
     async function loginAction(e: any) {
         e.preventDefault();
         if (!username.length || !password.length) {
-            return alert("Doldur");
+            return alert("Please check your inputs");
         }
         const response = await services.login(username, password);
 
         if (!response?.Id) {
-            return alert("Hata var");
+            return alert("Error");
         }
         dispatch(setIsAuth(true as never));
         dispatch(setUser(response));
@@ -54,18 +54,6 @@ export default function AccessCard() {
                         value={password}
                         onChange={(e: any) => setPassword(e.target.value)}
                     />
-                    {/* <div className="passWordInput">
-                    <input placeholder="Enter your password" />
-                    <InputAdornment position="end">
-                        <IconButton
-                            aria-label="toggle password visibility"
-                            onClick={handleClickShowPassword}
-                            onMouseDown={handleMouseDownPassword}
-                            edge="end">
-                            {showPassword ? <VisibilityOff /> : <Visibility />}
-                        </IconButton>
-                    </InputAdornment>
-                </div> */}
                     <CButton type="submit">Login</CButton>
                 </div>
             </form>

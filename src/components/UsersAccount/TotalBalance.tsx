@@ -17,7 +17,6 @@ export default function TotalBalance() {
                 prefix={currency}
             />
             <h3>Total Balance</h3>
-            {/* <img className='usdLogo' src="../../assets/img/usd.png" alt="usd logo" /> */}
         </div>
     );
 }

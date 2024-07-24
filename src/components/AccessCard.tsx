@@ -10,8 +10,8 @@ import { setIsAuth, setUser } from "../utils/redux/features/auth";
 export default function AccessCard() {
     const dispatch = useAppDispatch();
 
-    const [username, setUsername] = React.useState("emrepartner");
-    const [password, setPassword] = React.useState("123456");
+    const [username, setUsername] = React.useState("");
+    const [password, setPassword] = React.useState("");
 
     async function loginAction(e: any) {
         e.preventDefault();
@@ -39,7 +39,6 @@ export default function AccessCard() {
                     </h2>
                 </div>
             </div>
-            <form onSubmit={loginAction}>
                 <div className="userName">
                     <h4>Username</h4>
                     <input
@@ -54,9 +53,8 @@ export default function AccessCard() {
                         value={password}
                         onChange={(e: any) => setPassword(e.target.value)}
                     />
-                    <CButton type="submit">Login</CButton>
+                    <CButton onClick={loginAction}>Login</CButton>
                 </div>
-            </form>
         </div>
     );
 }

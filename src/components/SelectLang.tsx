@@ -77,7 +77,7 @@ const LanguageSelect = () => {
 
     const defaultValueObj = useMemo(
         () => langsArr.find((l) => l.value === lang),
-        [lang]
+        [lang, langsArr]
     );
 
     const handleChange = (selectedOption: any) => {
@@ -91,6 +91,7 @@ const LanguageSelect = () => {
             styles={customStyles}
             onChange={handleChange}
             defaultValue={defaultValueObj}
+            value={defaultValueObj}
             isSearchable={false}
             menuPlacement="top"
             options={langsArr}

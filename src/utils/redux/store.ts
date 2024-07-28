@@ -13,7 +13,7 @@ import language from "./features/language";
 
 const persistConfig = {
     key: "dashboard",
-    whitelist: ["auth", "player"],
+    whitelist: ["auth", "player", "language", "partner"],
     blacklist: [],
     storage,
 };

@@ -10,8 +10,8 @@ import { setIsAuth, setUser } from "../utils/redux/features/auth";
 export default function AccessCard() {
     const dispatch = useAppDispatch();
 
-    const [username, setUsername] = React.useState("emrepartner");
-    const [password, setPassword] = React.useState("123456");
+    const [username, setUsername] = React.useState("");
+    const [password, setPassword] = React.useState("");
 
     async function loginAction(e: any) {
         e.preventDefault();

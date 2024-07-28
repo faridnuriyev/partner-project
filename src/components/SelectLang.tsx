@@ -1,37 +1,36 @@
 import Select, { components } from "react-select";
 import Flag from "react-world-flags";
 import { useAppDispatch, useAppSelector } from "../utils/hooks/useRedux";
-import { setLang } from "../utils/redux/features/auth";
+import { setLang } from "../utils/redux/features/language";
 import { useMemo } from "react";
 
 const customStyles = {
     control: (provided: any) => ({
         ...provided,
-        backgroundColor: "#1d1d1d", 
-        border: "1px solid #414141", 
-        boxShadow: "none", 
-        color: "#bfbfbf", 
+        backgroundColor: "#1d1d1d",
+        border: "1px solid #414141",
+        boxShadow: "none",
+        color: "#bfbfbf",
     }),
     option: (provided: any, state: any) => ({
         ...provided,
         cursor: "pointer",
-        backgroundColor:  "#1d1d1d", 
-        color: state.isSelected ? "white" :"#d0d0d0", 
+        backgroundColor: "#1d1d1d",
+        color: state.isSelected ? "white" : "#d0d0d0",
         ":hover": {
             backgroundColor: "#1d1d1d",
-            color: "white", 
+            color: "white",
         },
-        
     }),
     singleValue: (provided: any) => ({
         ...provided,
         cursor: "pointer",
-        color: "#bfbfbf", 
+        color: "#bfbfbf",
     }),
     menu: (provided: any) => ({
         ...provided,
         cursor: "pointer",
-        backgroundColor: "#1d1d1d", 
+        backgroundColor: "#1d1d1d",
     }),
 };
 
@@ -74,7 +73,7 @@ const Control = ({ children, ...props }: any) => {
 
 const LanguageSelect = () => {
     const dispatch = useAppDispatch();
-    const { lang, langsArr } = useAppSelector((state) => state.auth);
+    const { lang, langsArr } = useAppSelector((state) => state.language);
 
     const defaultValueObj = useMemo(
         () => langsArr.find((l) => l.value === lang),

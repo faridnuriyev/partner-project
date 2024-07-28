@@ -7,8 +7,9 @@ import {
 import auth from "./features/auth";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { isProd } from "../../constants/config";
 import player from "./features/player";
+import partner from "./features/partner";
+import language from "./features/language";
 
 const persistConfig = {
     key: "dashboard",
@@ -20,13 +21,15 @@ const persistConfig = {
 const reducers = combineReducers({
     auth,
     player,
+    language,
+    partner,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers);
 
 export const store = configureStore({
     reducer: persistedReducer,
-    devTools: !isProd,
+    devTools: !import.meta.env.PROD,
 });
 
 export type AppDispatch = typeof store.dispatch;

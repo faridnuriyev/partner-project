@@ -1,26 +1,14 @@
 import { logout } from "../../utils/redux/features/auth";
-import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks/useRedux";
-import { useNavigate } from "react-router-dom";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import "../../assets/style/UserAccount.css";
 
-
 export default function UsersHeader() {
     const dispatch = useAppDispatch();
-    const navigate = useNavigate();
-    const isAuthenticated = useAppSelector(
-        (state) => state.auth.isAuthenticated
-    );
-    const currentUser = useAppSelector((state) => state.auth.currentUser);
 
-    useEffect(() => {
-        if (!isAuthenticated) {
-            navigate("/login");
-        }
-    }, [isAuthenticated]);
+    const currentUser = useAppSelector((state) => state.auth.currentUser);
 
     function logoutAction() {
         dispatch(logout());

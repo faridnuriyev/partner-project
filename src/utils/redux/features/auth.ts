@@ -33,19 +33,14 @@ export interface State {
         PartnerType: string;
         UseCasinoBalance: boolean;
     } | null;
-    lang: string;
-    langsArr: any[];
-    siteId: number;
-    partnerId: number;
+  
+   
 }
 
 const initialState: State = {
     isAuthenticated: false,
     currentUser: null,
-    lang: "en",
-    langsArr: [],
-    siteId: 1,
-    partnerId: 23,
+
 };
 
 export const slice = createSlice({
@@ -58,12 +53,6 @@ export const slice = createSlice({
         setIsAuth: (state: any, action: any) => {
             state.isAuthenticated = action.payload;
         },
-        setLang: (state: any, action: any) => {
-            state.lang = action.payload;
-        },
-        setLangArr: (state: any, action: any) => {
-            state.langsArr = action.payload;
-        },
         logout: (state: any) => {
             state.isAuthenticated = false;
             state.currentUser = null;
@@ -74,6 +63,6 @@ export const slice = createSlice({
     },
 });
 
-export const { setUser, setIsAuth, setLang, setLangArr, logout, resetAuth } =
+export const { setUser, setIsAuth, logout, resetAuth } =
     slice.actions;
 export default slice.reducer;

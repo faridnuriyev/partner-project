@@ -1,19 +1,9 @@
-import { endpoint } from "../constants/config";
-import { store } from "./redux/store";
+import http from "./http";
+
 
 function getLang() {
     try {
-        const SiteId = store.getState()?.["auth"]?.["siteId"];
-        return fetch(endpoint + "/getavailablelanguages", {
-            method: "POST",
-            headers: {
-                "content-type": "application/json; charset=UTF-8",
-                lang: "en",
-            },
-            body: JSON.stringify({
-                SiteId,
-            }),
-        }).then((r) => r.json());
+      return http("/getavailablelanguages")
     } catch (error: any) {
         alert(error.toString());
     }
@@ -21,25 +11,10 @@ function getLang() {
 
 function login(Username: string, Password: string) {
     try {
-        const SiteId = store.getState()?.["auth"]?.["siteId"];
-        const PartnerId = store.getState()?.["auth"]?.["partnerId"];
-        return fetch(endpoint + "/login", {
-            method: "POST",
-            headers: {
-                "content-type": "application/json; charset=UTF-8",
-                lang: "en",
-            },
-            body: JSON.stringify({
-                Username,
-                Password,
-                SiteId,
-                PartnerId,
-                IP: "127.0.0.1",
-                Browser: "Chrome",
-                Device: "Pc",
-                OS: "Mac OS",
-            }),
-        }).then((r) => r.json());
+        return http("/login", {
+            Username,
+            Password
+        })
     } catch (error: any) {
         alert(error.toString());
     }
@@ -47,27 +22,11 @@ function login(Username: string, Password: string) {
 
 function playerList() {
     try {
-        const SiteId = store.getState()?.["auth"]?.["siteId"];
-        const PartnerId = store.getState()?.["auth"]?.["partnerId"];
-        // const SessionKey =
-        //     store.getState()?.["auth"]?.["currentUser"]?.["SessionKey"];
-        return fetch(endpoint + "/partnerplayerlist", {
-            method: "POST",
-            // headers: {
-            //     SessionKey: SessionKey ?? "",
-            // },
-            headers: {
-                "content-type": "application/json; charset=UTF-8",
-                lang: "en",
-            },
-            body: JSON.stringify({
-                PartnerId,
-                Start: 0,
-                End: 10,
-                SiteId,
-                Direct: false,
-            }),
-        }).then((response) => response.json());
+        return http("/partnerplayerlist", {
+            Start: 0,
+            End: 10,
+            Direct: false,
+        });
     } catch (error: any) {
         alert(error.toString());
     }

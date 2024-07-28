@@ -1,29 +1,17 @@
-import { Route, Routes } from "react-router-dom";
-import { Provider } from "react-redux";
-import { store } from "./utils/redux/store";
-import { PersistGate } from "redux-persist/integration/react";
-import { persistStore } from "redux-persist";
-import Login from "./containers/Login";
-import Home from "./containers/Home";
-import PlayerDetail from "./containers/PlayerDetail";
-
-const persistor = persistStore(store);
+import { useAppSelector } from "./utils/hooks/useRedux";
+import PrivateRoutes from "./routes/PrivateRoutes";
+import PublicRoutes from "./routes/PublicRoutes";
+import { useMemo } from "react";
 
 function Router() {
-    return (
-        <Provider store={store}>
-            <PersistGate loading={null} persistor={persistor}>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route
-                        path="/player/:playerId"
-                        element={<PlayerDetail />}
-                    />
-                    <Route path="/login" element={<Login />} />
-                </Routes>
-            </PersistGate>
-        </Provider>
+    const { isAuthenticated } = useAppSelector((state) => state.auth);
+
+    const Routes = useMemo(
+        () => (isAuthenticated ? <PrivateRoutes /> : <PublicRoutes />),
+        [isAuthenticated]
     );
+
+    return Routes;
 }
 
 export default Router;

@@ -39,24 +39,22 @@ export default function AccessCard() {
                     </h2>
                 </div>
             </div>
-            <form onSubmit={loginAction}>
-                <div className="userName">
-                    <h4>Username</h4>
-                    <input
-                        placeholder="Enter your username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                    />
-                </div>
-                <div className="passWord">
-                    <h4>Password</h4>
-                    <Input
-                        value={password}
-                        onChange={(e: any) => setPassword(e.target.value)}
-                    />
-                    <CButton type="submit">Login</CButton>
-                </div>
-            </form>
+            <div className="userName">
+                <h4>Username</h4>
+                <input
+                    placeholder="Enter your username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                />
+            </div>
+            <div className="passWord">
+                <h4>Password</h4>
+                <Input
+                    value={password}
+                    onChange={(e: any) => setPassword(e.target.value)}
+                />
+                <CButton onClick={loginAction}>Login</CButton>
+            </div>
         </div>
     );
 }
